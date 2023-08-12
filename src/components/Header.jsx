@@ -33,7 +33,7 @@ const Header = () => {
             </ul>
 
             {/* Responceive menu  */}
-            <ul className={`text-white w-full h-1/3 md:hidden fixed bg-black top-[80px]
+            <ul className={`text-white  w-full h-screen md:hidden fixed bg-black top-[80px]
              ${openMenu ? 'left-[0]':'left-[-100%]'} `}>
                 <NavLink
                     to='/' className={({ isActive }) => isActive ? 'text-orange-400' : 'default:'}>
