@@ -16,7 +16,7 @@ const ProductCard = ({ product,handleAddToCard }) => {
                 <p className='text-lg text-slate-600 mb-3'>Rating : {ratings} Star</p>
                 <div className="card-actions justify-end"></div>
             </div>
-            <button onClick={()=>handleAddToCard(product)} className='absolute bottom-0 h-[40px] w-full text-center bg-[#FFE0B3] rounded flex justify-center items-center md:hover:bg-orange-400 '>
+            <button onClick={()=>handleAddToCard(product)} className='absolute bottom-0 h-[40px] w-full text-center bg-[#FFE0B3] rounded flex justify-center items-center hover:bg-orange-400 '>
                 Add to Card
                 <ShoppingCartIcon className='w-6 h-6'/>
                 </button>

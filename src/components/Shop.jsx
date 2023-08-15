@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
 import CardDetel from './CardDetel';
-import { addToDb, getShoppingCart } from '../assets/utilities/fakedb';
+import { addToDb, deleteShoppingCart, getShoppingCart } from '../assets/utilities/fakedb';
 
 const Shop = () => {
     const [products, setProduct] = useState([])
     const [cart, setCart] = useState([])
     useEffect((() => {
-        fetch('/public/product.json')
+        fetch('product.json')
             .then(res => res.json())
             .then(data => setProduct(data))
     }), [])
@@ -18,6 +18,11 @@ const Shop = () => {
         setCart(newCart)
         addToDb(product.id)
 
+    }
+
+    const handleDelet = () =>{
+        setCart([])
+        deleteShoppingCart()
     }
 
     // get to localstoreage data 
@@ -57,7 +62,11 @@ const Shop = () => {
             </div>
             {/* card detel  */}
             <div className='col-span-1 '>
-                <CardDetel cart={cart}></CardDetel>
+                <CardDetel
+                 cart={cart}
+                 handleDelet={handleDelet}
+
+                 ></CardDetel>
             </div>
         </div>
     );

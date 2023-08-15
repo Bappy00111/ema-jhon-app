@@ -7,31 +7,36 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Home from './components/Shop.jsx';
+import addedProductLoaded from './AddedProductLoad.js';
+import Shop from './components/Shop.jsx';
+import Home from './components/Home.jsx';
 import OrderReview from './components/OrderReview.jsx';
 import Login from './components/Login.jsx';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App></App>,
-    children:[
-    {
-      path:'/',
-      element:<Home></Home>
-      
-    },
-    {
-      path:'/orderReview',
-      element:<OrderReview></OrderReview>
-    },
-    {
-      path:'/login',
-      element:<Login></Login>
-    }
 
-    ]
-  },
+
+const router = createBrowserRouter([
+ {
+  path:'/',
+  element:<Home></Home>,
+  children:[
+   {
+    path:'/',
+    element:<Shop></Shop>
+   },
+   {
+    path:'/orderReview',
+    element:<OrderReview></OrderReview>,
+    loader:addedProductLoaded
+   },
+   {
+    path:'/login',
+    element: <Login></Login>   
+  }
+   
+  ]
+  
+ }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
